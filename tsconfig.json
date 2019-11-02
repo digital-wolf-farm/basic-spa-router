@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es2015",
         "module": "commonjs",
         "declaration": true,
         "outDir": "./lib",
@@ -11,6 +11,6 @@
     ],
     "exclude": [
         "node_modules",
-        "**/__tests__/*"
+        "tests/*"
     ]
 }
