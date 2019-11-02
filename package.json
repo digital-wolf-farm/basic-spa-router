@@ -1,29 +1,37 @@
 {
-  "name": "basic-spa-router",
-  "version": "0.1.0",
-  "description": "Basic JavaScript SPA router",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build" : "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/digital-wolf-farm/basic-spa-router.git"
-  },
-  "keywords": [
-    "JS",
-    "Router",
-    "Routing",
-    "SPA"
-  ],
-  "author": "dwf",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/digital-wolf-farm/basic-spa-router/issues"
-  },
-  "homepage": "https://github.com/digital-wolf-farm/basic-spa-router#readme",
-  "devDependencies": {
-    "typescript": "^3.6.4"
-  }
+    "name": "basic-spa-router",
+    "version": "0.1.0",
+    "description": "Basic JavaScript SPA router",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "tsc",
+        "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+        "lint": "tslint -p tsconfig.json"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/digital-wolf-farm/basic-spa-router.git"
+    },
+    "keywords": [
+        "JS",
+        "Router",
+        "Routing",
+        "SPA"
+    ],
+    "author": "dwf",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/digital-wolf-farm/basic-spa-router/issues"
+    },
+    "homepage": "https://github.com/digital-wolf-farm/basic-spa-router#readme",
+    "devDependencies": {
+        "prettier": "^1.18.2",
+        "tslint": "^5.20.0",
+        "tslint-config-prettier": "^1.18.0",
+        "typescript": "^3.6.4"
+    },
+    "files": [
+        "lib/**/*"
+    ]
 }
