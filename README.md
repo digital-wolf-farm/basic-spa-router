@@ -1,1 +1,1 @@
-"# Basic SPA Router" 
+# Basic SPA Router
