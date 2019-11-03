@@ -28,6 +28,15 @@ async function getTemplate(rootDirectory: string, pathToTemplate: string, templa
     });
 }
 
+function getHashLocation(): void {
+    const hashLocation = window.location.hash;
+    validateRoute(hashLocation, routes);
+}
+
+function getCurrentLocation(): void {
+    getHashLocation();
+}
+
 function isRouteValid(currentRouteArray: string[], definedRoutesArray: IRoute[]): boolean {
     const comparedElement = currentRouteArray.shift();
 
@@ -51,8 +60,7 @@ function isRouteValid(currentRouteArray: string[], definedRoutesArray: IRoute[])
 
 function detectLocationChange() {
     window.addEventListener('hashchange', (event: HashChangeEvent) => {
-        const hashLocation = window.location.hash;
-        validateRoute(hashLocation, routes);
+        getHashLocation();
     });
 }
 
@@ -60,6 +68,7 @@ function init(appRoutes: IRoute[], templatesRootDirectory: string): void {
     routes = appRoutes;
     templatesDirectory = templatesRootDirectory;
 
+    getCurrentLocation();
     detectLocationChange();
 }
 
