@@ -28,6 +28,27 @@ async function getTemplate(rootDirectory: string, pathToTemplate: string, templa
     });
 }
 
+function isRouteValid(currentRouteArray: string[], definedRoutesArray: IRoute[]): boolean {
+    const comparedElement = currentRouteArray.shift();
+
+    const tempRoutesArray = definedRoutesArray.filter((route) => route.path === comparedElement);
+
+    if (tempRoutesArray.length === 0) {
+        return false;
+    } else if (tempRoutesArray.length > 1) {
+        // Add loging that wrong definition of routes, there is at least 2 the same
+        return false;
+    }
+
+    if (currentRouteArray.length > 0 && !tempRoutesArray[0].children) {
+        return false;
+    } else if (currentRouteArray.length > 0 && tempRoutesArray[0].children) {
+        return isRouteValid(currentRouteArray, tempRoutesArray[0].children);
+    }
+
+    return true;
+}
+
 function detectLocationChange() {
     window.addEventListener('hashchange', (event: HashChangeEvent) => {
         const hashLocation = window.location.hash;
@@ -46,7 +67,11 @@ function validateRoute(currentHashLocation: string, availableRoutes: IRoute[]) {
     const hashLocationArray = currentHashLocation.split('/');
     hashLocationArray.shift();
 
-    // add loop for iterating over hashLocationArray and check if elements are part of routes
+    if (isRouteValid(hashLocationArray, availableRoutes)) {
+        // getTemplate
+    } else {
+        // redirectTo404
+    }
 }
 
 export { init };
