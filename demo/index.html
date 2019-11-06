@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Basic SPA Router</title>
+
+    <link rel="stylesheet" href="./icons/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./icons/css/solid.min.css">
+    <link rel="stylesheet" href="./style/selvedge.min.css">
+</head>
+
+<body>
+    <header class="l-header">
+        <div class="navbar">
+            <div class="navbar-info">
+                <div id="sidebar-button" class="button-control">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="navbar-logo">
+                    <p><a href="#">Basic SPA Router</a></p>
+                </div>
+            </div>
+
+            <div class="navbar-navigation">
+                <div class="top-menu">
+                    <ul>
+                        <li>
+                            <a href="#/html">HTML Module</a>
+                        </li>
+                        <li>
+                            <a href="#/css">CSS Module</a>
+                        </li>
+                        <li>
+                            <a href="#/js">JavaScript Module</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="l-content" data-router="0"></div>
+
+    <footer class="l-footer">
+        <div class="l-container is-vertically-marginless">
+            <div class="copyrights">
+                <p class="copyrights-info">&copy; 2019 Copyright: Digital Wolf Farm</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- <script> var exports = {}; </script> -->
+    <script src="js/app.js" type="module"></script>
+</body>
+
+</html>
