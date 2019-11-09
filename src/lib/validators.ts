@@ -1,4 +1,4 @@
-import { IRoute } from './models/i-route';
+import { IRoute } from './models/i-route.js';
 
 function isRouteValid(currentRouteArray: string[], definedRoutesArray: IRoute[]): boolean {
     const comparedElement = currentRouteArray.shift();

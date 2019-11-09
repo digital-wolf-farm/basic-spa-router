@@ -1,9 +1,10 @@
-import { ITemplateData } from './models/i-template-data';
+import { ITemplateData } from './models/i-template-data.js';
 
 const templateCache: ITemplateData[] = [];
 
 async function findTemplate(template: string): Promise<any> {
     if (checkIfTemplateIsCached(template)) {
+        // reorder cache to be current template was last
         // getTemplateFromCache(template);
     } else {
         // await readTemplateFromFile(template);
@@ -24,6 +25,7 @@ async function readTemplateFromFile(rootDirectory: string, pathToTemplate: strin
 
         xhttp.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
+                cacheTemplate(this.responseText);
                 resolve(this.responseText);
             } else {
                 reject();
@@ -36,6 +38,10 @@ async function readTemplateFromFile(rootDirectory: string, pathToTemplate: strin
 
 function checkIfTemplateIsCached(templateName: string): boolean {
     return templateCache.filter((template) => templateName === template.name).length > 0;
+}
+
+function cacheTemplate(template: string): void {
+    // remove first template from array if size equal to 20 and add current template as last
 }
 
 export { findTemplate };

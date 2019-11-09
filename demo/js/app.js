@@ -1,5 +1,5 @@
 import { routes } from './routes.js';
-import { init } from '../../lib/index.js';
+import { init } from '../../dist/index.js';
 
 document.addEventListener('DOMContentLoaded', (event) => {
     function initRouter() {
