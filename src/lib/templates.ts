@@ -2,6 +2,23 @@ import { ITemplateData } from './models/i-template-data.js';
 
 const templateCache: ITemplateData[] = [];
 
+async function appendTemplate(route: string[]): Promise<void> {
+    const currentTemplate = route.shift();
+    let template: string;
+
+    // add else condition
+    if (currentTemplate !== undefined) {
+        template = await findTemplate(currentTemplate);
+    }
+
+    // find router-outlet if-else
+    // append template
+
+    if (route.length > 0) {
+        appendTemplate(route);
+    }
+}
+
 async function findTemplate(template: string): Promise<any> {
     if (checkIfTemplateIsCached(template)) {
         // reorder cache to be current template was last
@@ -44,4 +61,4 @@ function cacheTemplate(template: string): void {
     // remove first template from array if size equal to 20 and add current template as last
 }
 
-export { findTemplate };
+export { appendTemplate };

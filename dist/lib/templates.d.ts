@@ -1,2 +1,2 @@
-declare function findTemplate(template: string): Promise<any>;
-export { findTemplate };
+declare function appendTemplate(route: string[]): Promise<void>;
+export { appendTemplate };

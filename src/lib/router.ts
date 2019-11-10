@@ -1,7 +1,7 @@
 import { getDefinedRoutes, saveConfiguration } from './configuration.js';
 import { getHashLocation } from './location.js';
 import { IRoute } from './models/i-route.js';
-import { findTemplate } from './templates.js';
+import { appendTemplate } from './templates.js';
 import { isRouteValid } from './validators.js';
 
 function init(appRoutes: IRoute[], templatesRootDirectory: string): void {
@@ -27,12 +27,7 @@ function validateRoute(currentHashLocation: string, availableRoutes: IRoute[]) {
     const hashLocationArray = currentHashLocation.split('/');
     hashLocationArray.shift();
 
-    // Shorthand if
-    if (isRouteValid(hashLocationArray, availableRoutes)) {
-        // findTemplate
-    } else {
-        // findTemplate(404)
-    }
+    isRouteValid(hashLocationArray, availableRoutes) ? appendTemplate(hashLocationArray) :  appendTemplate(['*']);
 }
 
 function emitPageReadyEvent(): void {

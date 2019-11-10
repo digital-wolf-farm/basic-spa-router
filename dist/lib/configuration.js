@@ -1,13 +1,15 @@
-let routes;
-let templatesDirectory;
+const configuration = {
+    routes: [],
+    templatesDirectory: ''
+};
 function getDefinedRoutes() {
-    return routes;
+    return configuration.routes;
 }
 function getTemplatesDirectory() {
-    return templatesDirectory;
+    return configuration.templatesDirectory;
 }
 function saveConfiguration(appRoutes, templatesRootDirectory) {
-    routes = appRoutes;
-    templatesDirectory = templatesRootDirectory;
+    configuration.routes = appRoutes;
+    configuration.templatesDirectory = templatesRootDirectory;
 }
 export { getDefinedRoutes, getTemplatesDirectory, saveConfiguration };

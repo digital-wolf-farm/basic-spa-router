@@ -8,9 +8,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const templateCache = [];
+function appendTemplate(route) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const currentTemplate = route.shift();
+        let template;
+        // add else condition
+        if (currentTemplate !== undefined) {
+            template = yield findTemplate(currentTemplate);
+        }
+        // find router-outlet if-else
+        // append template
+        if (route.length > 0) {
+            appendTemplate(route);
+        }
+    });
+}
 function findTemplate(template) {
     return __awaiter(this, void 0, void 0, function* () {
         if (checkIfTemplateIsCached(template)) {
+            // reorder cache to be current template was last
             // getTemplateFromCache(template);
         }
         else {
@@ -32,6 +48,7 @@ function readTemplateFromFile(rootDirectory, pathToTemplate, template) {
             }
             xhttp.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
+                    cacheTemplate(this.responseText);
                     resolve(this.responseText);
                 }
                 else {
@@ -46,4 +63,7 @@ function readTemplateFromFile(rootDirectory, pathToTemplate, template) {
 function checkIfTemplateIsCached(templateName) {
     return templateCache.filter((template) => templateName === template.name).length > 0;
 }
-export { findTemplate };
+function cacheTemplate(template) {
+    // remove first template from array if size equal to 20 and add current template as last
+}
+export { appendTemplate };
